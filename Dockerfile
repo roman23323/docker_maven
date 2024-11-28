@@ -4,5 +4,6 @@ COPY . .
 RUN mvn clean package
 
 FROM openjdk:17
+RUN ls -l /app
 COPY --from=build /app/target/*.jar app.jar
 ENTRYPOINT ["java", "-jar", "app.jar"]
